@@ -18,8 +18,8 @@ for elem in soup.find_all("a", id="card__title-link") :
 
 
 
-# test = f"./datas.json"
-# with open(test, 'w') as file:
-#     json.dump(links, file, indent=4)
+test = f"./datas.json"
+with open(test, 'w') as file:
+   json.dump(links, file, indent=4)
 
 
