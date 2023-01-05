@@ -8,7 +8,7 @@ import json
 # https://www.immoweb.be/en/search/house-and-apartment/for-sale/brussels/province?countries=BE&page=1&orderBy=relevance
 
 # provinces list
-provinces_list=["antwerp", "brabant", "brussels", "west flanders", "east flanders", "hainaut", "liege", "limburg", "luxembourg", "namur"]
+provinces_list=["antwerp", "brabant", "brussels", "west-flanders", "east-flanders", "hainaut", "liege", "limburg", "luxembourg", "namur"]
 for y in range(len(provinces_list)):
     province=provinces_list[y]
     # page number
@@ -33,19 +33,3 @@ for y in range(len(provinces_list)):
 
             script_list = property_details_page.find_all("script")
             print(script_list)
-    #       readable = re.sub(r'[\\/]', '', script_list)
-    #       print(readable)
-
-
-# Let's make it work
-'''
-        for list in pages:
-
-            title = list.find('a', attrs={"class":"cardtitle-link"})
-            locality = list.find('p', attr={"class":"cardinformation card--resultsinformation--locality cardinformation--locality"})
-            typeproperty = list.find('a', attr={"class":"cardtitle-link"}).text
-            price = list.find('span', attr={"class":"sr-only"})
-
-            info = [title, locality, typeproperty, price]
-            print(info)
-'''
