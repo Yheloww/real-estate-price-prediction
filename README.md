@@ -39,7 +39,7 @@ Next, it creates a thread pool using ThreadPoolExecutor and a with block. It the
 
 -
 
-3- scrapin_data.py :t his document using the BeautifulSoup library to parse an HTML page and extract information from it. It appears to be using the requests library to make HTTP requests to retrieve the HTML pages.
+3- cleaning.py :t his document using the BeautifulSoup library to parse an HTML page and extract information from it. It appears to be using the requests library to make HTTP requests to retrieve the HTML pages.
 
 The clean_data() function reads the links from a file and makes an HTTP GET request to each of these links using the requests library. It then creates a Beautiful Soup object from the HTML content of the page and finds all script tags in the page. It passes this list of tags to the organise_data() function and returns the result of this function.
 
