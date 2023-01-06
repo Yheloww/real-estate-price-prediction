@@ -70,4 +70,4 @@ Please, contact any of the authors via GitHub.
 
 [contributors-shield]: https://img.shields.io/github/contributors/CorentinChanet/challenge-collecting-data.svg?style=for-the-badge
 
-[contributors-url]: [https://github.com/CorentinChanet/challenge-collecting-data/graphs/contributors](https://github.com/Yheloww/real-estate-price-prediction/graphs/contributors)
+[contributors-url]: [https://github.com/Yheloww/real-estate-price-prediction/graphs/contributors]
