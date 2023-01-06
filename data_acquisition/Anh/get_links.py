@@ -36,18 +36,15 @@ def get_links():
     province = provinces[prov]
     page_num = 1
 
-    url = (
-        "https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+
-        "/province?countries=BE&page="+str(page_num)+"&orderBy=relevance"
-    )
-
 # browse page 1 of each province, then page 2 and so on
     urls = []
     for (page_num, province) in itertools.product(range(1,334), provinces):
-        urls.append("https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+
-        "/province?countries=BE&page="+str(page_num)+"&orderBy=relevance")
-    for uri in urls:
-        driver.get(uri)
+        base_url = "https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+"/province?countries=BE&page="+str(page_num)+"&orderBy=relevance"
+        if pagination(base_url, driver)==False:
+            continue
+        urls.append(base_url)
+    for url in urls:
+        driver.get(url)
         
 # close webdriver
     driver.quit()
