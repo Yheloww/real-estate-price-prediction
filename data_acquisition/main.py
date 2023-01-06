@@ -23,7 +23,7 @@ def csv_file(datas):
 
 def main():
     #getting the link    
-    #get_links()
+    get_links()
     #scraping and cleaning datas
     datas = clean_data()
     # creating csv
