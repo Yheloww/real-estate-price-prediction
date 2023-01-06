@@ -3,53 +3,64 @@ from bs4 import BeautifulSoup
 import re
 import json
 import requests
-import numpy as np
+import numpy as npurl
 from concurrent.futures import ThreadPoolExecutor
+import itertools
 
 # destination file of the URLs collected
-test = f"./links.txt"
-
-# driver init
-def driver_gen():
-    driver = webdriver.Firefox()
-    return driver
+test = f"links.txt"
 
 # detect if the page contains a pagination
-def pagination(search_page)
-    has_pagination = search_page.find("class":"pagination")
+def pagination(url, driver):
+
+    driver.get(url)
+    
+    soup=BeautifulSoup(driver.page_source, "html.parser")
+    has_pagination = soup.find("lu", {"class":"pagination"})
     if has_pagination == -1:
         page_exists = False
     else:
         page_exists = True
     return page_exists
 
-# open immoweb using selenium and add the links of announces into a list
-def get_links(iterations, driver):
-    list_of_link = []
-    provinces = ["antwerp", "brabant", "brussels", "west-flanders", "east-flanders", "hainaut", "liege", "limburg", "luxembourg", "namur"]
+# navigates through the search result pages
+def get_links():
+    driver = webdriver.Firefox()
+    driver.set_page_load_timeout(15)
+    driver.implicitly_wait(15)
 
-    for prov in range(len(provinces)):
-        province=provinces[prov]
-    
-        for num in iterations:
-            page_num = str(num)
-            url = (
-                    "https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+"/pronvince?countries=BE&page="+page_num+"&orderBy=relevance"
-                    )
-            driver.get(url)
+    list_of_links = []
+    provinces = ["antwerp", "walloon-brabant", "flemish-brabant", "brussels", "west-flanders", "east-flanders", 
+                "hainaut", "liege", "limburg", "luxembourg", "namur"]
+    prov = 0
+    province = provinces[prov]
+    page_num = 1
 
-            soup = BeautifulSoup(driver.page_source, "html.parser")
-            dict_of_informations = {}
-            for link in soup.find_all("a", class_="card__title-link") : 
-                list_of_link.append(link['href'])
-                #print(link['href'])
+    url = (
+        "https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+
+        "/province?countries=BE&page="+str(page_num)+"&orderBy=relevance"
+    )
+
+# browse page 1 of each province, then page 2 and so on
+    urls = []
+    for (page_num, province) in itertools.product(range(1,334), provinces):
+        urls.append("https://www.immoweb.be/en/search/house-and-apartment/for-sale/"+province+
+        "/province?countries=BE&page="+str(page_num)+"&orderBy=relevance")
+    for uri in urls:
+        driver.get(uri)
+        
+# close webdriver
     driver.quit()
-    #calling clean function to clean and return clean data
-    #not the good way i think incorporate links finding in data cleaning
-    print(len(list_of_link))
-    return list_of_link
+    driver.close()
+
+    print(len(list_of_links))
+    return list_of_links
 
 # save the list of links into an external file
 def link_file(datas):
     with open(test, 'a') as file:
         file.write(f'{datas}\n')
+
+# call get_links without using threads
+if __name__ == "__main__":
+    get_links()
