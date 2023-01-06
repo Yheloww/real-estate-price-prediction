@@ -1,7 +1,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 
 <h2 align="center"> Immoweb Scrapping </h2>
-<p align="center"><a href="https://github.com/CorentinChanet/challenge-collecting-data">
+<p align="center"><a href="https://github.com/Yheloww/real-estate-price-prediction">
 <img src="https://becode.org/app/uploads/2020/03/cropped-becode-logo-seal.png" alt="Logo" width="200" height="200"></a></p>
 <h3 align="center">Web scraping group project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
 
