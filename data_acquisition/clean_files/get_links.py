@@ -1,5 +1,3 @@
-
-#this jupiter notebook rassemble my work in order
 #first we import every libraries that we need
 from selenium import webdriver
 from bs4 import BeautifulSoup
