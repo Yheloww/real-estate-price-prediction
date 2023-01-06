@@ -1,3 +1,4 @@
 data_acquisition/Anh/__pycache__/get_links.cpython-310.pyc
 geckodriver.log
 links.txt
+*.csv
