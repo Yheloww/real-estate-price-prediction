@@ -14,7 +14,7 @@ in Belgium. Once the information is fetched it will be cleaned and stored in a C
 
 - The second part was a solo project :
 
-This part is about data cleaning and data visualisation. Help us discover pandas librairies and the tools to visualize datas. Understand the link between datas and starting to be more confident to work with them.
+This part is about data cleaning and data visualisation. Help us discover pandas librairies and the tools to visualize datas. Understand the link between datas and starting to be more confident to work with them. I took a dataFrame that's not related to the first part because we didn't manage to get a good one.
 
 
 # Scraping part
