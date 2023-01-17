@@ -90,19 +90,19 @@ I wanted to put some plots for references here :
 
 In wich province is a property with a garden cheaper ? 
 
-<img src="Plots/price.png" alt="drawing" width="500"/>
+<img src="Plots_images/price.png" alt="drawing" width="500"/>
 
 What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
 
-<img src="Plots/try.png" alt="drawing" width="500"/>
+<img src="Plots_images/try.png" alt="drawing" width="500"/>
 
 What is the average size of garden per provinces
 
-<img src="Plots/size%20of%20garden.png" alt="drawing" width="500"/>
+<img src="Plots_images/size%20of%20garden.png" alt="drawing" width="500"/>
 
-<img src="Plots/Building%20sate.png" alt="drawing" width="500"/>
+<img src="Plots_images/Building%20sate.png" alt="drawing" width="500"/>
 
-<img src="Plots/type_of_properties.png" alt="drawing" width="500"/>
+<img src="Plots_images/type_of_properties.png" alt="drawing" width="500"/>
 
 
 
