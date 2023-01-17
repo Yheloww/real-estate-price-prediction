@@ -10,14 +10,16 @@
 Our program will scrape a real estate website ([Immoweb](https://www.immoweb.be/en)) for data about houses and apartments
 in Belgium. Once the information is fetched it will be cleaned and stored in a CSV file.
 
-## Installation
+## Scraping part
+
+# Installation
 
 1. Clone the repo
 2. Install the required libraries
 3. Install Selenium WebDriver
 4. Run main.py
 
-## Starting and running
+# Starting and running
 
 After starting, our program there is 4 different Python Documents
 
@@ -50,6 +52,45 @@ The save_to_csv() function takes a list of dictionaries as its argument and crea
 -
 
 4- main.py: Main code for running the program and pool function.
+## Data vizualisation Part 
+
+# Installation
+
+1. Clone the repo
+2. Install pandas 
+3. Install matplotlib and seborn
+4. Run all cells in the Data visualisation.ipynb
+
+# Starting and running
+
+1- Data cleaning 
+In the data cleaning part we can find all work on the dataset to be able to work with. First we check for empy rows of information and then see if we get rid of the rows by seeing how many there are missing. And after that we get rid of the different columns we don't need for the different exploration. After that we change the types of the columns to have types that work in plots. We create new collums based on the other colums, as the provinces colums and the Price/m2 column. At the end of the cleaning we get rid of outliers for numeric columns. 
+
+2- Data Analysis
+The data analysis is principaly the correlation graph and the understanding of the differents values and how they interact with each other.
+
+3- Data Interpretation 
+The data interpretation part is where the magic happen. We start to create graphs of the values. In this part I've principaly worked on the questions we had to answer to. 
+My first question was : In wich province is a house with a garden cheaper ?
+to answer this question I first plotted the price in each province for the sales in a bar graph. After that i wanted to know the mean size of garden in each province. And after that i continued to plot some information to have a better understanding of the datas about gardens. 
+
+My second question was: What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
+Started to scatter plot the information to see a trends but it was a little bit too crowded sor I change the type of my graph to use a density graph and put them one beside the other. 
+
+I worked on type of property too, I wanted to know in wich province the castle where the cheaper in average. and plotted the difference of the prices for each typ of property. 
+
+After this I selected some other interesting plots that I encounter during my researchs.
+
+# Visuals 
+I wanted to put some plots for references here : 
+
+In wich province is a property with a garden cheaper ? 
+![Alt text](https://github.com/Yheloww/real-estate-price-prediction/Plots/price.png)
+
+What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
+![Alt text](https://github.com/Yheloww/real-estate-price-prediction/Plots/try.png)
+
+
 
 ## Authors
 
