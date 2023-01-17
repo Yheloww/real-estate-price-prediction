@@ -1,14 +1,21 @@
 [![Contributors][contributors-shield]][contributors-url]
 
-<h2 align="center"> Immoweb Scrapping </h2>
+<h2 align="center"> Immoweb project </h2>
 <p align="center"><a href="https://github.com/Yheloww/real-estate-price-prediction">
 <img src="https://becode.org/app/uploads/2020/03/cropped-becode-logo-seal.png" alt="Logo" width="200" height="200"></a></p>
-<h3 align="center">Web scraping group project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
+<h3 align="center">Data collectioning and analysis project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
 
 # Description
+This is a project about data collection and data analysis. It is done in multiple part. 
+- The first part was a group project :
 
 Our program will scrape a real estate website ([Immoweb](https://www.immoweb.be/en)) for data about houses and apartments
 in Belgium. Once the information is fetched it will be cleaned and stored in a CSV file.
+
+- The second part was a solo project :
+
+This part is about data cleaning and data visualisation. Help us discover pandas librairies and the tools to visualize datas. Understand the link between datas and starting to be more confident to work with them.
+
 
 # Scraping part
 
