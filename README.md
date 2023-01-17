@@ -5,21 +5,21 @@
 <img src="https://becode.org/app/uploads/2020/03/cropped-becode-logo-seal.png" alt="Logo" width="200" height="200"></a></p>
 <h3 align="center">Web scraping group project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
 
-## Description
+# Description
 
 Our program will scrape a real estate website ([Immoweb](https://www.immoweb.be/en)) for data about houses and apartments
 in Belgium. Once the information is fetched it will be cleaned and stored in a CSV file.
 
-## Scraping part
+# Scraping part
 
-# Installation
+## Installation
 
 1. Clone the repo
 2. Install the required libraries
 3. Install Selenium WebDriver
 4. Run main.py
 
-# Starting and running
+## Starting and running
 
 After starting, our program there is 4 different Python Documents
 
@@ -52,24 +52,27 @@ The save_to_csv() function takes a list of dictionaries as its argument and crea
 -
 
 4- main.py: Main code for running the program and pool function.
-## Data vizualisation Part 
+# Data visualisation Part 
 
-# Installation
+## Installation
 
 1. Clone the repo
 2. Install pandas 
 3. Install matplotlib and seborn
 4. Run all cells in the Data visualisation.ipynb
 
-# Starting and running
+## Starting and running
 
 1- Data cleaning 
+
 In the data cleaning part we can find all work on the dataset to be able to work with. First we check for empy rows of information and then see if we get rid of the rows by seeing how many there are missing. And after that we get rid of the different columns we don't need for the different exploration. After that we change the types of the columns to have types that work in plots. We create new collums based on the other colums, as the provinces colums and the Price/m2 column. At the end of the cleaning we get rid of outliers for numeric columns. 
 
 2- Data Analysis
+
 The data analysis is principaly the correlation graph and the understanding of the differents values and how they interact with each other.
 
 3- Data Interpretation 
+
 The data interpretation part is where the magic happen. We start to create graphs of the values. In this part I've principaly worked on the questions we had to answer to. 
 My first question was : In wich province is a house with a garden cheaper ?
 to answer this question I first plotted the price in each province for the sales in a bar graph. After that i wanted to know the mean size of garden in each province. And after that i continued to plot some information to have a better understanding of the datas about gardens. 
@@ -81,14 +84,25 @@ I worked on type of property too, I wanted to know in wich province the castle w
 
 After this I selected some other interesting plots that I encounter during my researchs.
 
-# Visuals 
+## Visuals 
 I wanted to put some plots for references here : 
 
+
 In wich province is a property with a garden cheaper ? 
-![Alt text](https://github.com/Yheloww/real-estate-price-prediction/Plots/price.png)
+
+<img src="Plots/price.png" alt="drawing" width="500"/>
 
 What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
-![Alt text](https://github.com/Yheloww/real-estate-price-prediction/Plots/try.png)
+
+<img src="Plots/try.png" alt="drawing" width="500"/>
+
+What is the average size of garden per provinces
+
+<img src="Plots/size%20of%20garden.png" alt="drawing" width="500"/>
+
+<img src="Plots/Building%20sate.png" alt="drawing" width="500"/>
+
+<img src="Plots/type_of_properties.png" alt="drawing" width="500"/>
 
 
 
