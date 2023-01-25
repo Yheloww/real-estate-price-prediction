@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np 
 
-def get_dataframe(path : str):
+def get_raw_data(path : str):
 
     df = pd.read_csv(r'C:\Users\feldm\Documents\GitHub\real-estate-price-prediction\data\raw.csv')
     return df 
