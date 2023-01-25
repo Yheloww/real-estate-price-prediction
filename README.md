@@ -3,10 +3,9 @@
 <h2 align="center"> Immoweb project </h2>
 <p align="center"><a href="https://github.com/Yheloww/real-estate-price-prediction">
 <img src="https://becode.org/app/uploads/2020/03/cropped-becode-logo-seal.png" alt="Logo" width="200" height="200"></a></p>
-<h3 align="center">Data collectioning and analysis project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
+<h3 align="center">Data collectioning, analysis and ML project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
 
 # Description
-This is a project about data collection and data analysis. It is done in multiple part. 
 - The first part was a group project :
 
 Our program will scrape a real estate website ([Immoweb](https://www.immoweb.be/en)) for data about houses and apartments
@@ -16,6 +15,10 @@ in Belgium. Once the information is fetched it will be cleaned and stored in a C
 
 This part is about data cleaning and data visualisation. Help us discover pandas librairies and the tools to visualize datas. Understand the link between datas and starting to be more confident to work with them. I took a dataFrame that's not related to the first part because we didn't manage to get a good one.
 
+- the third part was still a solo project :
+
+This part is about modelling, try and experiment with machine learning; discovering algorithms, evaluation of the model, preprocessing ....
+first contact with AI for me. 
 
 # Scraping part
 
@@ -30,35 +33,24 @@ This part is about data cleaning and data visualisation. Help us discover pandas
 
 After starting, our program there is 4 different Python Documents
 
-1- get_links.py : this document using the Selenium and Beautiful Soup libraries to scrape a website for links.
+1- [get_links.py](src\data_acquisition\get_links.py) 
 
-The driver_gen() function initializes a webdriver object using the Chrome browser and returns it.
+This file is to get the links from immoweb website. I iterates over the different belgian provinces and each times it checks if it is not the last pages for the province. If it is it goes to the next provinces till all provinces have been scrape. On each page the selenium driver get the links for each property and put it in a list. Then the list is saved in a txt file to be used in the cleaning part
 
-The get_links() function takes two arguments: iterations and driver. It then creates an empty list called list_of_link. The function then iterates over the values in iterations and for each value, it builds a URL and visits it using the driver. It then creates a Beautiful Soup object from the page source and uses it to find all a tags with a class of card\_\_title-link. It appends the href attribute of each of these tags to list_of_link and then quits the driver. Finally, it returns list_of_link.
 
-The link_file() function takes one argument, datas, and writes it to the file specified in the test variable, with a newline character at the end.
+2- [threads.py](src\data_acquisition\threads.py)
 
--
+This file is about threading. THe incroporation in the code hasn't been finished but it uses a Pool of threads to cut the numbers of page it has to scrape and each thread get a part of the work so it goes faster. (still need to be implemented in the final version)
 
-2- threads.py : This document using the get_links() function from another module (presumably called get_links) to scrape a website for links and write them to a file.
 
-The pool() function takes two arguments: numbers_drivers and pages. It creates a list of numbers_drivers webdriver objects using the driver_gen() function and stores it in the drivers list. It then divides the range of integers from 1 to pages into numbers_drivers equal parts using numpy.array_split() and stores the resulting list of arrays in division.
+3- [cleaning.py](src\data_acquisition\cleaning.py)
 
-Next, it creates a thread pool using ThreadPoolExecutor and a with block. It then uses the map() method of the executor to apply the get_links() function to each element in division with the corresponding element in drivers. Finally, it iterates over the results of this operation, writing each element to the file specified in the test variable using the link_file() function.
+This file regroup the functions that iterates over the list of links to get all the informations needed. It gets the scripts of the pagges and then with the help of a dictionary it creates information column for each property and it is stocked in a pandas dataframe for the next part
 
--
+4- [main.py](src\data_acquisition\main.py)
 
-3- cleaning.py :t his document using the BeautifulSoup library to parse an HTML page and extract information from it. It appears to be using the requests library to make HTTP requests to retrieve the HTML pages.
+This file get all the functions from all the files from before and organises it to have the final Dataframe into a csv file. 
 
-The clean_data() function reads the links from a file and makes an HTTP GET request to each of these links using the requests library. It then creates a Beautiful Soup object from the HTML content of the page and finds all script tags in the page. It passes this list of tags to the organise_data() function and returns the result of this function.
-
-The organise_data() function takes a list of script tags as its argument. It then iterates over the list and checks if either "window.dataLayer" or "window.classified" is present in the script tag. If either of these is present, it extracts certain information from the tag and stores it in variables. It then creates an empty dictionary called property_details and adds key-value pairs to it using the extracted information. Finally, it appends property_details to a list called list_of_properties and returns this list.
-
-The save_to_csv() function takes a list of dictionaries as its argument and creates a Pandas DataFrame from it. It then writes this DataFrame to a CSV file and returns the file's name.
-
--
-
-4- main.py: Main code for running the program and pool function.
 # Data visualisation Part 
 
 ## Installation
@@ -69,6 +61,8 @@ The save_to_csv() function takes a list of dictionaries as its argument and crea
 4. Run all cells in the Data visualisation.ipynb
 
 ## Starting and running
+
+these part are all done in [Data_visualisation](notebook\Data_visualisation.ipynb)
 
 1- Data cleaning 
 
@@ -91,36 +85,122 @@ I worked on type of property too, I wanted to know in wich province the castle w
 
 After this I selected some other interesting plots that I encounter during my researchs.
 
+# Model  
+
+## Installation
+
+1. Clone the repo
+2. Install pandas 
+3. Install sklearn
+4. Run the main.py file in model_training folder
+
+## Starting and running
+1- notebooks (model_training and reworkdata)
+
+The notebooks are my experiments. They are there to show my thinking and my different experiment before putting everything into Python file. My challenge this part was to clean everything at the end to have clear and better organised code. But I still decide to keep notebooks as we are in a learning process so we can see my reflections. 
+
+[model_training.ipynb](notebook\model_training.ipynb) - is the experimentations with algorithms and cross validation. 
+I tested 2 algorithms for now :
+ - Linear Regression 
+
+ - Gradient Boosting regressor 
+
+The second one gives better results so I use it in my final file. 
+
+I also test CV search and randomized search to tune the hyperparameters of the gradient boosting algoritms. THe results of these tests are in the model_perf folder: [CV](model_perf\cv_results.csv), [random_CV](model_perf\cv_random_results.csv)
+
+[reworkdata.ipynb](notebook\reworkdata.ipynb) - is the modification I did to feed the data frame for the model. I changed some things from the data visualisation part but in the idea it is quite the same process. Just at the end I add the pd.dummies from pandas to use for categorical datas. And then I save the dataset into [preprocessed.csv](data\preprocessed.csv).
+
+
+2- [Preprocessing.py](src\model_training\preprocessing.py) 
+
+It is a cleaned version of the reworkdata Jupyter notebook. I created functions to start the automation of the process of cleaning. 
+The idea is to feed the columns names to the function.
+- get_dataframe()
+- replace_nan()
+- drop_nan()
+- changes_types()
+- create_col()
+- remove outliers()
+- get_dummies()
+
+
+3- [model_train.py](src\model_training\model_train.py) 
+
+It is a cleaned version of the model_training jupyter notebook. It separate the process into functions to be able to change the algorithms that we use easily. 
+
+- get_dataframe()
+- get_X_y()
+- model_training()
+- eval_model()
+
+4- [main.py](src\model_training\main.py)
+
+It is the file that put the preprocessing and the model_training together. Possible to use it and change the algorithms as wanted. 
+
+The final rsquared score that I have for my model is 0.66. 
+
+## Interpretation of model performances
+
+As I said before this was my first project using machine learning. It was a lot of new things to learn and to get into. 
+
+the 0.66 score isn't that bad if you want my advice for now. 
+But why is it not 0.75 or 0.8 ?
+
+I have several ideas of what could be the cause of this medium-low score.
+
+- fetures : 
+
+I tried to implement as features as possible from my dataset, each new feature got my score higher. but at one point I was stuck because I didn't had enough informations to predict very well the prices. So the first hypothesis is the limitation of the dataframe, maybe we miss some very important information that influences the price greatly. Maybe is the repartition of the values.  But the next step would be to go back to the sraping part and scrape more datas, and ones that are more representative of the market in Belgium. 
+
+- algorithms : 
+
+The second possibility is the choice of algorithms, I tried to have a good score with linear refression first and then tried another algorithm. I didn't had the time to dive deep into algorithms to select the best one. But that's my next step, try to understand different algorithms and see wich one is the more adapted for each ML problem. 
+
 ## Visuals 
-I wanted to put some plots for references here : 
+These are the plots from my visualisations. I've regrouped the ones that I thought gave the best insights on the dataset here. But there's more in the [Data_visualisation](notebook\Data_visualisation.ipynb) notebook. 
 
+### In wich province is a property with a garden cheaper ? 
 
-In wich province is a property with a garden cheaper ? 
+We can see that the cheapest provinces is hainaut for a house with a garden. With this graph we also see that the median price of houses doesn't change much if we have a garden or not in general. Except in brussel but it is a big city so that's normal. 
 
-<img src="Plots_images/price.png" alt="drawing" width="500"/>
+<img src="notebook/Plots_images/price.png" alt="drawing" width="500"/>
 
-What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
+### What is the difference of price comparing renovated house and to renovate ones with the same Living area ? 
 
-<img src="Plots_images/try.png" alt="drawing" width="500"/>
+We can see that the offer of houses to renovate is bigger than the just renovated ones. Also we can observe that the offer of to renovate house has a bigger range , the most crowded zone goes from 100.000 to 300.000 with a living area between 50 and 200 m2square. In the just renovated the zone goes from almost 200.000 to 300.000 with a living_area between 50 to 100 m2square.
 
-What is the average size of garden per provinces
+<img src="notebook/Plots_images/try.png" alt="drawing" width="500"/>
 
-<img src="Plots_images/size%20of%20garden.png" alt="drawing" width="500"/>
+### What is the average size of garden per provinces ? 
 
-<img src="Plots_images/Building%20sate.png" alt="drawing" width="500"/>
+We can see that the average size of garden in each provinces is quite similar and is around 45 msquared. 
 
-<img src="Plots_images/type_of_properties.png" alt="drawing" width="500"/>
+<img src="notebook/Plots_images/size%20of%20garden.png" alt="drawing" width="500"/>
+
+### median price for building state : 
+
+<img src="notebook/Plots_images/Building%20sate.png" alt="drawing" width="500"/>
+
+###  what is the most expensive type of property in m2square ?
+
+we can see that the kot(student lodging) is the most expensive in m2square. 
+
+<img src="notebook/Plots_images/type_of_properties.png" alt="drawing" width="500"/>
 
 
 
 ## Authors
-
+1- Scraping part (group work)
 > [Anil](https://github.com/anilembel)
 
 > [Héloïse](https://github.com/Yheloww)
 
 > [Anh](https://github.com/AnhSN)
 
+2-3 Data visualisation and modelling(solo part)
+
+> [Héloïse](https://github.com/Yheloww)
 <!-- CONTACT -->
 
 ## Contact
