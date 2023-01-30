@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+        <h2>Your sell </h2>
+        <br/>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.living_area.label(class="form-label")}}
+            {{ form.living_area(class="form-text")}}
+            <br/>
+            {{ form.facades_number.label(class="form-label")}}
+            {{ form.facades_number(class="form-text")}}
+            <br/>
+            {{ form.number_bedroom.label(class="form-label") }}
+            {{ form.number_bedroom(class="form-text") }}
+            <br/>
+            {{ form.fire_place.label(class="form-label")}}
+            {{ form.fire_place(class="form-check-input" )}}
+            <br/> 
+            {{ form.kitchen.label(class="form-label")}}
+            {{ form.kitchen(class="form-check-input" )}}
+            <br/>  
+            {{ form.furnished.label(class="form-label")}}
+            {{ form.furnished(class="form-check-input" )}}
+            <br/>  
+            {{ form.garden.label(class="form-label")}}
+            {{ form.garden(class="form-check-input" )}}
+            <br/>
+            {{ form.swim.label(class="form-label")}}
+            {{ form.swim(class="form-check-input" )}}
+            <br/>
+            {{ form.terrace.label(class="form-label")}}
+            {{ form.terrace(class="form-check-input" )}}
+            <br/>
+            {{ form.type_property.label(class="form-check")}}
+            {{ form.type_property(class="form-check")}}
+            <br/>
+            {{ form.provinces.label(class="form-check")}}
+            {{ form.provinces(class="form-check" )}}
+            <br/> 
+
+            {{ form.submit(class="btn btn-primary") }}
+
+        </form>
+
+{% endblock %}
