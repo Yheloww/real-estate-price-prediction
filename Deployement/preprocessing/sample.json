@@ -1,1 +1,1 @@
-{"property_type": "apartement", "rooms_number": 55, "area": 100, "equipped_kitchen": true, "furnished": true, "terrace": true, "garden": true, "facades_number": 2, "swimming_pool": true, "building_state": "Renovated", "fire_place": true, "provinces": "Liege"}
+{"type_property_apartement": "apartement", "number_bedrooms": 2, "living_area": 50, "fully_equipped_kitchen": false, "furnished": false, "terrace": false, "garden": false, "facades_number": 2, "swimming_pool": false, "fire_place": false, "provinces_Liege": "Liege", "building_state_As new": "As new"}

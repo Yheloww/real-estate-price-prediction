@@ -40,7 +40,8 @@ def get_X_y(PATH, test: str):
     df = get_dataframe(PATH)
 
     y = df[test].values
-    X = df.drop(test, axis=1).values
+    test = df.drop([test,"Unnamed: 0"], axis=1)
+    X = test.values
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=15)
 
@@ -84,7 +85,7 @@ def eval_model(X_train: np.array, X_test: np.array, y_train: np.array, y_test: n
             str : formatted str that shows the scores together
     """
     pipe = model_training(X_train, y_train)
-    pickle.dump(pipe, open('model.plk', 'wb'))
+    pickle.dump(pipe, open('model.pkl', 'wb'))
 
     y_pred = pipe.predict(X_test)
 

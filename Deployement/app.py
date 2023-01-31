@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, jsonify, url_for,redirect
 from form import TestForm
 import json
-
+from predict.prediction import predict
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "password"
 
@@ -14,31 +14,32 @@ def name():
     infos_dict = {}
     if form.validate_on_submit():
         json_data = {
-            "property_type": form.type_property.data,
-            "rooms_number": form.number_bedroom.data,
-            "area": form.living_area.data,
-            "equipped_kitchen": form.kitchen.data,
+            "type_property_" + form.type_property.data : form.type_property.data,
+            "number_bedrooms": form.number_bedroom.data,
+            "living_area": form.living_area.data,
+            "fully_equipped_kitchen": form.kitchen.data,
             "furnished": form.furnished.data,
             "terrace": form.terrace.data,
             "garden": form.garden.data,
             "facades_number": form.facades_number.data,
             "swimming_pool": form.swim.data,
             "fire_place": form.fire_place.data,
-            "provinces": form.provinces.data,
-            "building_state": form.building_state.data,
+            "provinces_" + form.provinces.data : form.provinces.data,
+            "building_state_" + form.building_state.data : form.building_state.data,
 
         }
         with open("sample.json", "w") as outfile:
             json.dump(json_data, outfile)
 
-        return redirect(url_for('predict'))
+        return redirect(url_for('predicte'))
 
     return render_template("form.html",
                             form=form)
 
-@app.route('/predict', methods=['GET','POST'])
-def predict():
-    return render_template('results.html')
+@app.route('/predicte', methods=['GET','POST'])
+def predicte():
+    infos = int(predict())
+    return render_template('results.html', infos=infos)
 
 
 

@@ -12,7 +12,7 @@ class TestForm(FlaskForm):
                                choices=['Luxembourg','Liege','Namur'], 
                                validators=[InputRequired()])
     building_state = RadioField("What is the state ?", 
-                               choices=['To renovate','Renovated','New'], 
+                               choices=['To renovate','Just renovated','As new'], 
                                validators=[InputRequired()])
     fire_place = BooleanField("Fire place ?", default='checked')
     kitchen = BooleanField("is the kitchen fully equiped ?", 
