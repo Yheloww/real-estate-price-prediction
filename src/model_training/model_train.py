@@ -10,7 +10,9 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_percentage_error
 from sklearn.pipeline import Pipeline
 
-PATH = r'C:\Users\feldm\Documents\GitHub\real-estate-price-prediction\data\preprocessed.csv'
+import pickle
+
+PATH = r'C:\Users\feldm\Documents\GitHub\real-estate-price-prediction\data\cleaned_two.csv'
 
 
 def get_dataframe(Path: str) -> pd.DataFrame:
@@ -82,6 +84,7 @@ def eval_model(X_train: np.array, X_test: np.array, y_train: np.array, y_test: n
             str : formatted str that shows the scores together
     """
     pipe = model_training(X_train, y_train)
+    pickle.dump(pipe, open('model.plk', 'wb'))
 
     y_pred = pipe.predict(X_test)
 

@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField,IntegerField, BooleanField, RadioField
 from wtforms.validators import DataRequired, InputRequired
 
+
 #class of the form 
 class TestForm(FlaskForm):
     type_property = RadioField("What is the property type ?", 
@@ -9,6 +10,9 @@ class TestForm(FlaskForm):
                                validators=[InputRequired()])
     provinces = RadioField("What is the province ?", 
                                choices=['Luxembourg','Liege','Namur'], 
+                               validators=[InputRequired()])
+    building_state = RadioField("What is the state ?", 
+                               choices=['To renovate','Renovated','New'], 
                                validators=[InputRequired()])
     fire_place = BooleanField("Fire place ?", default='checked')
     kitchen = BooleanField("is the kitchen fully equiped ?", 
