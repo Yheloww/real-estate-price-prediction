@@ -28,7 +28,7 @@ def name():
             "building_state_" + form.building_state.data : form.building_state.data,
 
         }
-        with open("sample.json", "w") as outfile:
+        with open("./Deployement/app/sample.json", "w") as outfile:
             json.dump(json_data, outfile)
 
         return redirect(url_for('predicte'))
@@ -38,10 +38,11 @@ def name():
 
 @app.route('/predicte', methods=['GET','POST'])
 def predicte():
-    infos = int(predict())
+    path = "./Deployement/app/sample.json"
+    infos = int(predict(path))
     return render_template('results.html', infos=infos)
 
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True, host="0.0.0.0")
