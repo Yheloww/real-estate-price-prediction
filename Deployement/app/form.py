@@ -9,10 +9,11 @@ class TestForm(FlaskForm):
                                choices=['house','apartement'], 
                                validators=[InputRequired()])
     provinces = RadioField("What is the province ?", 
-                               choices=['Luxembourg','Liege','Namur'], 
+                               choices=['Luxembourg','Liege','Namur','Anvers', 'Brussel', 'E.Flanders', 'F.Brabant', 
+                                        'Hainaut','Limbourg','W.Flanders', 'W.brabant'], 
                                validators=[InputRequired()])
     building_state = RadioField("What is the state ?", 
-                               choices=['To renovate','Just renovated','As new'], 
+                               choices=['To renovate','Just renovated','As new','To be done up', 'To restore','Good'], 
                                validators=[InputRequired()])
     fire_place = BooleanField("Fire place ?", default='checked')
     kitchen = BooleanField("is the kitchen fully equiped ?", 

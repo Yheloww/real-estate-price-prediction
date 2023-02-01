@@ -7,7 +7,7 @@ def preprocess(path):
     column_final = ['number_bedrooms', 'living_area', 'fully_equipped_kitchen',
        'furnished', 'terrace', 'garden', 'facades_number', 'swimming_pool',
        'fire_place', 'provinces_Anvers', 'provinces_Brussel',
-       'provinces_E.Fanders', 'provinces_F.Brabant', 'provinces_Hainaut',
+       'provinces_E.Flanders', 'provinces_F.Brabant', 'provinces_Hainaut',
        'provinces_Liege', 'provinces_Limbourg', 'provinces_Luxembourg',
        'provinces_Namur', 'provinces_W.Flanders', 'provinces_W.brabant',
        'type_property_apartement', 'type_property_house',
