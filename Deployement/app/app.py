@@ -26,7 +26,6 @@ def name():
             "fire_place": form.fire_place.data,
             "provinces_" + form.provinces.data : form.provinces.data,
             "building_state_" + form.building_state.data : form.building_state.data,
-
         }
         with open("./sample.json", "w") as outfile:
             json.dump(json_data, outfile)
@@ -45,4 +44,4 @@ def predicte():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5000)
