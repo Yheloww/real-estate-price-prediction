@@ -3,8 +3,11 @@
 
 {% block content %}
 
-        <h2>Your sell </h2>
+        <h2>Predict the price of your real estate </h2>
         <br/>
+        <p>Fill the informations to have an estimation price of your property</p>
+        <div class="row">
+            <div class="col">
         <form method="POST">
             {{ form.hidden_tag() }}
 
@@ -35,6 +38,8 @@
             {{ form.terrace.label(class="form-label")}}
             {{ form.terrace(class="form-check-input" )}}
             <br/>
+        </div>
+            <div class="col">
             {{ form.type_property.label(class="form-check")}}
             {{ form.type_property(class="form-check")}}
             <br/>
@@ -46,7 +51,8 @@
             <br/> 
 
             {{ form.submit(class="btn btn-primary") }}
-
         </form>
+    </div>
+    </div>
 
 {% endblock %}
