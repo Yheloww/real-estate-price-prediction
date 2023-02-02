@@ -6,9 +6,9 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY ./Deployement/app ./Deployement/app
+COPY . .
 
-CMD ["python", "./Deployement/app/app.py"]
+CMD ["python", "./app.py"]
 
 #docker build -t predict-app .
 #docker run -t -i -p 5000:5000 predict-app
