@@ -33,7 +33,7 @@ def name():
 
         return redirect(url_for('predicte'))
 
-    return render_template("form.html",
+    return render_template("test.html",
                             form=form)
 
 @app.route('/predicte', methods=['GET','POST'])
@@ -45,4 +45,4 @@ def predicte():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, host="0.0.0.0", debug=True)
+    app.run(port=5000, debug=True)

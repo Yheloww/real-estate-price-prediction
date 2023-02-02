@@ -1,27 +1,26 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,IntegerField, BooleanField, RadioField
+from wtforms import SubmitField,IntegerField, BooleanField, RadioField, SelectField
 from wtforms.validators import DataRequired, InputRequired
 
 
 #class of the form 
 class TestForm(FlaskForm):
-    type_property = RadioField("What is the property type ?", 
+    type_property = SelectField("What is the property type ?", 
                                choices=['house','apartement'], 
                                validators=[InputRequired()])
-    provinces = RadioField("What is the province ?", 
+    provinces = SelectField("What is the province ?", 
                                choices=['Luxembourg','Liege','Namur','Anvers', 'Brussel', 'E.Flanders', 'F.Brabant', 
                                         'Hainaut','Limbourg','W.Flanders', 'W.brabant'], 
                                validators=[InputRequired()])
-    building_state = RadioField("What is the state ?", 
+    building_state = SelectField("What is the state ?", 
                                choices=['To renovate','Just renovated','As new','To be done up', 'To restore','Good'], 
                                validators=[InputRequired()])
-    fire_place = BooleanField("Fire place ?", default='checked')
-    kitchen = BooleanField("is the kitchen fully equiped ?", 
-                           default='checked')
-    furnished = BooleanField("furnished ?", default='checked')
-    garden = BooleanField("is there a garden ?", default='checked')
-    swim = BooleanField("swimmingpool ?", default='checked')
-    terrace = BooleanField("terrace ?", default='checked')
+    fire_place = BooleanField("Fire place ?")
+    kitchen = BooleanField("is the kitchen fully equiped ?")
+    furnished = BooleanField("furnished ?")
+    garden = BooleanField("is there a garden ?")
+    swim = BooleanField("swimmingpool ?")
+    terrace = BooleanField("terrace ?")
 
     number_bedroom = IntegerField("Number of rooms ?", validators=[DataRequired()])
     living_area = IntegerField("Living area ?", validators=[DataRequired()])

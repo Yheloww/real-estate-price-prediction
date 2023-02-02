@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-light text-center">Test</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col d-flex justify-content-center border-light">
+          <div class="card text-bg-dark mb-3 w-100">
+              <div class="card-body">
+                <p class="card-text">
+                    {{ form.living_area(class="form-control",placeholder="Living area")}}
+                </br>  
+                      {{ form.facades_number(class="form-control", placeholder="Number of facades")}}
+                </br> {{ form.number_bedroom(class="form-control", placeholder="Number of rooms") }}
+                </p>
+            </div>
+            </div>
+        </div>
+        <div class="col border-light d-flex justify-content-center">
+          <div class="card text-bg-dark mb-3 w-100">
+              <div class="card-header text-center">Features</div>
+              <div class="card-body">
+                <p class="card-text">
+            {{ form.fire_place(class="form-check-input" )}}
+            {{ form.fire_place.label(class="form-label")}}
+            <br/> 
+            {{ form.kitchen(class="form-check-input" )}}
+            {{ form.kitchen.label(class="form-label")}}
+            <br/>  
+            {{ form.furnished(class="form-check-input" )}}
+            {{ form.furnished.label(class="form-label")}}
+            <br/>  
+            {{ form.garden(class="form-check-input" )}}
+            {{ form.garden.label(class="form-label")}}
+            <br/>
+            {{ form.swim(class="form-check-input" )}}
+            {{ form.swim.label(class="form-label")}}
+            <br/>
+            {{ form.terrace(class="form-check-input" )}}
+            {{ form.terrace.label(class="form-label")}}
+            <br/>
+                </p>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center border-light">
+        <div class="card text-bg-dark mb-3 w-100 ">
+            <div class="card-header text-center">Property type</div>
+            <div class="card-body text-center">
+              <p class="card-text ">{{ form.type_property(class="btn btn-secondary dropdown-toggle")}}</p>
+            </div>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="card text-bg-dark mb-3 w-100 border-light">
+            <div class="card-header text-center">Belgian Province</div>
+            <div class="card-body text-center">
+              <p class="card-text">{{ form.provinces(class="btn btn-secondary dropdown-toggle")}}</p>
+            </div>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center border-light">
+        <div class="card text-bg-dark mb-3 w-100">
+            <div class="card-header text-center">State</div>
+            <div class="card-body text-center">
+              <p class="card-text">{{ form.building_state(class="btn btn-secondary dropdown-toggle" )}}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
