@@ -10,7 +10,7 @@ def predict(path):
     """
     X_test = preprocess(path)
     print(X_test.shape)
-    pickled_model = pickle.load(open('./Deployement/app/predict/model.pkl', 'rb'))
+    pickled_model = pickle.load(open('./predict/model.pkl', 'rb'))
     #
     m = pickled_model.predict(X_test) 
     rounded_up_integer_array = (np.ceil(m)).astype(int)
