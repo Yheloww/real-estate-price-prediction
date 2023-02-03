@@ -1,58 +1,87 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-
-        <h2>Predict the price of your real estate </h2>
-        <br/>
-        <p>Fill the informations to have an estimation price of your property</p>
-        <div class="row">
-            <div class="col">
-        <form method="POST">
-            {{ form.hidden_tag() }}
-
-            {{ form.living_area.label(class="form-label")}}
-            {{ form.living_area(class="form-text")}}
-            <br/>
-            {{ form.facades_number.label(class="form-label")}}
-            {{ form.facades_number(class="form-text")}}
-            <br/>
-            {{ form.number_bedroom.label(class="form-label") }}
-            {{ form.number_bedroom(class="form-text") }}
-            <br/>
-            {{ form.fire_place.label(class="form-label")}}
-            {{ form.fire_place(class="form-check-input" )}}
-            <br/> 
-            {{ form.kitchen.label(class="form-label")}}
-            {{ form.kitchen(class="form-check-input" )}}
-            <br/>  
-            {{ form.furnished.label(class="form-label")}}
-            {{ form.furnished(class="form-check-input" )}}
-            <br/>  
-            {{ form.garden.label(class="form-label")}}
-            {{ form.garden(class="form-check-input" )}}
-            <br/>
-            {{ form.swim.label(class="form-label")}}
-            {{ form.swim(class="form-check-input" )}}
-            <br/>
-            {{ form.terrace.label(class="form-label")}}
-            {{ form.terrace(class="form-check-input" )}}
-            <br/>
+<form method="POST">
+    {{ form.hidden_tag() }}
+<div class="container">
+<h1 class="text-warning">Price predictor</h1>
+<p>This site helps you predict the price of your real estate. </p>
+</div>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col justify-content-center">
+          <div class="card text-bg-dark border-light mb-3 w-100">
+              <div class="card-body text-light">
+                <p class="card-text ">
+                    {{ form.living_area.label(class="form-label")}}
+                    {{ form.living_area(class="form-control ",placeholder="Living area")}}
+                </br>  
+                    {{ form.facades_number.label(class="form-label")}}
+                    {{ form.facades_number(class="form-control ", placeholder="Number of facades")}}
+                </br> 
+                    {{ form.number_bedroom.label(class="form-label") }}
+                    {{ form.number_bedroom(class="form-control", placeholder="Number of rooms") }}
+                </p>
+            </div>
+            </div>
         </div>
-            <div class="col">
-            {{ form.type_property.label(class="form-check")}}
-            {{ form.type_property(class="form-check")}}
+        <div class="col d-flex justify-content-center">
+          <div class="card text-bg-dark border-light mb-3 w-100">
+              <div class="card-header bg-transparent border-light text-center">Features</div>
+              <div class="card-body text-light">
+                <p class="card-text">
+            {{ form.fire_place(class="form-check-input" )}}
+            {{ form.fire_place.label(class="form-label")}}
+            <br/> 
+            {{ form.kitchen(class="form-check-input" )}}
+            {{ form.kitchen.label(class="form-label")}}
+            <br/>  
+            {{ form.furnished(class="form-check-input" )}}
+            {{ form.furnished.label(class="form-label")}}
+            <br/>  
+            {{ form.garden(class="form-check-input" )}}
+            {{ form.garden.label(class="form-label")}}
             <br/>
-            {{ form.provinces.label(class="form-check")}}
-            {{ form.provinces(class="form-check" )}}
-            <br/> 
-            {{ form.building_state.label(class="form-check")}}
-            {{ form.building_state(class="form-check" )}}
-            <br/> 
+            {{ form.swim(class="form-check-input" )}}
+            {{ form.swim.label(class="form-label")}}
+            <br/>
+            {{ form.terrace(class="form-check-input" )}}
+            {{ form.terrace.label(class="form-label")}}
+            <br/>
+                </p>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <div class="card text-bg-dark mb-3 border-light w-100 ">
+            <div class="card-header bg-transparent border-light text-center">Property type</div>
+            <div class="card-body text-center text-light">
+              <p class="card-text ">{{ form.type_property(class="btn btn-secondary dropdown-toggle")}}</p>
+            </div>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="card text-bg-dark mb-3 w-100 border-light">
+            <div class="card-header bg-transparent border-light text-center">Belgian Province</div>
+            <div class="card-body text-center text-light">
+              <p class="card-text">{{ form.provinces(class="btn btn-secondary dropdown-toggle")}}</p>
+            </div>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="card text-bg-dark mb-3 w-100 border-light">
+            <div class="card-header bg-transparent border-light text-center">State</div>
+            <div class="card-body text-center text-light">
+              <p class="card-text">{{ form.building_state(class="btn btn-secondary dropdown-toggle" )}}</p>
+            </div>
+        </div>
+    </div>
+</br>
+{{ form.submit(class="btn btn-warning") }}
+</form>
+    
 
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
-    </div>
-    </div>
 
 {% endblock %}

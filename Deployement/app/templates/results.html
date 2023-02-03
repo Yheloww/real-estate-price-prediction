@@ -1,9 +1,30 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
-
-        <h2>The price </h2>
-        <h3> {{ infos }} euros </h3>
+{% extends 'base.html' %} {% block content %}
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  p {
+    font-size: 36px;
+    text-align: center;
+  }
+  .card {
+    font-size: 36px;
+    text-align: center;
+  }
+</style>
+<div class="card text-bg-dark mb-3 border-light wd-50">
+  <div class="card-header border-light">The estimated price</div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p class="text-warning">{{ infos }} euros</p>
+      <footer class="blockquote-footer">
+        The price is an estimation so it may not be accurate
+      </footer>
+    </blockquote>
+  </div>
+</div>
 
 {% endblock %}
