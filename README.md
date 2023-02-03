@@ -3,7 +3,7 @@
 <h2 align="center"> Immoweb project </h2>
 <p align="center"><a href="https://github.com/Yheloww/real-estate-price-prediction">
 <img src="https://becode.org/app/uploads/2020/03/cropped-becode-logo-seal.png" alt="Logo" width="200" height="200"></a></p>
-<h3 align="center">Data collectioning, analysis and ML project as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
+<h3 align="center">Data collectioning, Data analysis, ML prediction and model deployement as a part of Data&AI training at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h3><br><br>
 
 # Description
 - The first part was a group project :
@@ -19,6 +19,11 @@ This part is about data cleaning and data visualisation. Help us discover pandas
 
 This part is about modelling, try and experiment with machine learning; discovering algorithms, evaluation of the model, preprocessing ....
 first contact with AI for me. 
+
+-the fourth and final part was also a solo project:
+
+this part is about the deployement of a model, I created a flask app and deployed it with the help of some tools as docker and render. 
+[The application](https://prediction-mhn8.onrender.com/)
 
 # Scraping part
 
@@ -140,7 +145,7 @@ It is the file that put the preprocessing and the model_training together. Possi
 
 The final rsquared score that I have for my model is 0.66. 
 
-## Interpretation of model performances
+## Interpretation of the model performances
 
 As I said before this was my first project using machine learning. It was a lot of new things to learn and to get into. 
 
@@ -157,7 +162,38 @@ I tried to implement as features as possible from my dataset, each new feature g
 
 The second possibility is the choice of algorithms, I tried to have a good score with linear refression first and then tried another algorithm. I didn't had the time to dive deep into algorithms to select the best one. But that's my next step, try to understand different algorithms and see wich one is the more adapted for each ML problem. 
 
-## Visuals 
+# Deployement
+
+## Installation
+
+1. Clone the repo
+2. Install flask flaks_wtf 
+3. Install Docker
+4. Go on render.com 
+
+or 
+
+https://prediction-mhn8.onrender.com/
+
+
+## Usage 
+
+the final stage of this project is here ; the deployement of the website
+
+The website has a goal to take in new informations that a user would give it and then use our model to estimates the price of the real estate described.
+
+Here is a picture of the fist page of the website; it is the form where the user can put informations, this form has been made with flask wtforms and some html and bootstrap for the rest. 
+
+<img src="notebook/Plots_images/wbsite 1.png" alt="drawing" width="500"/>
+
+Here is a picture of the page where the results appear
+
+<img src="notebook/Plots_images/wbsite 2.png" alt="drawing" width="500"/>
+
+Has it has been deployed with render, now using the link everyone has access to this website. 
+In the repository of the website there's also a Dockefile, with wich I've created a Docker container with everything. 
+
+# Visuals 
 These are the plots from my visualisations. I've regrouped the ones that I thought gave the best insights on the dataset here. But there's more in the [Data_visualisation](notebook\Data_visualisation.ipynb) notebook. 
 
 ### In wich province is a property with a garden cheaper ? 
@@ -190,7 +226,7 @@ we can see that the kot(student lodging) is the most expensive in m2square.
 
 
 
-## Authors
+# Authors
 1- Scraping part (group work)
 > [Anil](https://github.com/anilembel)
 
@@ -198,12 +234,12 @@ we can see that the kot(student lodging) is the most expensive in m2square.
 
 > [Anh](https://github.com/AnhSN)
 
-2-3 Data visualisation and modelling(solo part)
+2-3 Data visualisation, modelling and Deployement (solo part)
 
 > [Héloïse](https://github.com/Yheloww)
 <!-- CONTACT -->
 
-## Contact
+# Contact
 
 Please, contact any of the authors via GitHub.
 
